@@ -1,17 +1,22 @@
 # Use the base image
 FROM hlohaus789/g4f:latest
 
+# Switch to root user for installation tasks
+USER root
+
 # Set the working directory
 WORKDIR /app
 
 # Install necessary tools
-RUN apt-get update && apt-get install -y wget && apt-get clean
+RUN apt-get update \
+    && apt-get install -y wget \
+    && apt-get clean
 
 # Create the folder for HAR and cookies
 RUN mkdir -p /app/har_and_cookies
 
-# Set the environment variable for the HAR URL (default to an empty string)
-ENV HAR_URL=""
+# Switch back to the default user
+USER appuser  # Replace with the correct default user in the base image, if applicable
 
 # Add a script to download the HAR file during container startup
 COPY download_har.sh /app/download_har.sh
