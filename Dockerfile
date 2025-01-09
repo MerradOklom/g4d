@@ -15,9 +15,6 @@ RUN apt-get update \
 # Create the folder for HAR and cookies
 RUN mkdir -p /app/har_and_cookies
 
-# Switch back to the default user
-USER root  # Replace with the correct default user in the base image, if applicable
-
 # Add a script to download the HAR file during container startup
 COPY download_har.sh /app/download_har.sh
 RUN chmod +x /app/download_har.sh
