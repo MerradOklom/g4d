@@ -24,4 +24,4 @@ EXPOSE 8080
 
 # Set the entrypoint script
 ENTRYPOINT ["/app/download_har.sh"]
-CMD ["python", "-m", "g4f.cli", "api", "--port", "8080", "--debug", "--ignore-providers", "$PROVIDERS"]
+CMD ["python", "-m", "g4f.cli", "api", "--port", "8080", "--debug", "--ignored-providers", "$PROVIDERS"]
