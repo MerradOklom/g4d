@@ -17,14 +17,14 @@ COOKIES_FILE_NAME=$(basename "$COOKIES_URL")
 
 # Download the HAR file
 echo "Downloading HAR file from $HAR_URL..."
-wget -O "/app/har_and_cookies/$HAR_FILE_NAME" "$HAR_URL" || {
+wget -qO "/app/har_and_cookies/$HAR_FILE_NAME" "$HAR_URL" || {
     echo "Error: Failed to download the HAR file."
     exit 1
 }
 
 # Download the cookies.json file
 echo "Downloading cookies.json file from $COOKIES_URL..."
-wget -O "/app/har_and_cookies/$COOKIES_FILE_NAME" "$COOKIES_URL" || {
+wget -qO "/app/har_and_cookies/$COOKIES_FILE_NAME" "$COOKIES_URL" || {
     echo "Error: Failed to download the cookies.json file."
     exit 1
 }
